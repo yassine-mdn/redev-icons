@@ -1,0 +1,16 @@
+{
+  "name": "redev-icons",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "svgr": "svgr --icon --typescript -d src assets "
+  },
+  "devDependencies": {
+    "@svgr/cli": "^8.1.0",
+    "@svgr/core": "^8.1.0",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.5.3"
+  },
+  "private": true
+}
