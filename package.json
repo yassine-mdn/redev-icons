@@ -9,8 +9,15 @@
   "devDependencies": {
     "@svgr/cli": "^8.1.0",
     "@svgr/core": "^8.1.0",
+    "@svgr/plugin-prettier": "^8.1.0",
+    "@svgr/plugin-svgo": "^8.1.0",
+    "glob": "^11.0.1",
     "rimraf": "^6.0.1",
     "typescript": "^5.5.3"
   },
-  "private": true
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
 }
