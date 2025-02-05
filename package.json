@@ -6,26 +6,29 @@
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "src"
+    "src",
+    "README.md"
   ],
   "scripts": {
     "prebuild": "rimraf src && rimraf dist",
     "build": "npm run generate-icons && npm run export-icons && tsup",
     "generate-icons": "ts-node scripts/generate-icons.ts && npm run cleanup-tsx",
     "export-icons": "ts-node scripts/generate-index.ts",
-    "cleanup-tsx": "ts-node scripts/cleanup-svg.ts"
+    "cleanup-tsx": "ts-node scripts/cleanup-svg.ts",
+    "semantic-release": "semantic-release",
   },
   "devDependencies": {
     "@svgr/cli": "^8.1.0",
     "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
     "@svgr/plugin-prettier": "^8.1.0",
     "@svgr/plugin-svgo": "^8.1.0",
-    "@svgr/plugin-jsx": "^8.1.0",
     "@types/node": "^22.13.1",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "glob": "^11.0.1",
     "rimraf": "^6.0.1",
+    "semantic-release": "^24.2.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   },
