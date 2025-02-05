@@ -1,7 +1,7 @@
 import fs from "fs";
-import { transform } from "@svgr/core";
+import {transform} from "@svgr/core";
 import path from "path";
-import { glob } from "glob";
+import {glob} from "glob";
 
 const ICONS_SOURCE_DIR = "assets";
 const COMPONENTS_DIR = "src";
@@ -9,18 +9,6 @@ const COMPONENTS_DIR = "src";
 function capitalizeFirstLetter(val: string): string {
     return val.charAt(0).toUpperCase() + val.slice(1);
 }
-
-// Template to generate named exports instead of default ones
-const iconComponentTemplate = (
-    { template }: any,
-    opts: any,
-    { imports, componentName, jsx }: any
-) =>
-    template.smart({ plugins: ["typescript"] }).ast`
-        ${imports}
-        ${"\n"}
-        export const ${componentName} = (props: React.SVGProps<SVGSVGElement>) => ${jsx};
-    `;
 
 if (!fs.existsSync(COMPONENTS_DIR)) {
     fs.mkdirSync(COMPONENTS_DIR, { recursive: true });
@@ -39,6 +27,20 @@ for (const icon of icons) {
             icon: true,
             typescript: true,
             plugins: ["@svgr/plugin-svgo", "@svgr/plugin-jsx", "@svgr/plugin-prettier"],
+            svgoConfig: {
+                plugins: [
+                    {
+                        name: 'preset-default',
+                    },
+                    {
+                        name: 'prefixIds',
+                        params: {
+                            delim: '-',
+                            prefix: componentName,
+                        }
+                    },
+                ],
+            }
         },
         { componentName: outputName }
     );
