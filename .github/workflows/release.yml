@@ -23,4 +23,4 @@ jobs:
         env:
           GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM-TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm run semantic—release
+        run: npm run semantic-release
