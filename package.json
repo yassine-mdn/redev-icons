@@ -30,7 +30,6 @@
     "typescript": "^5.7.3"
   },
   "dependencies": {
-    "fs": "^0.0.1-security",
     "tsup": "^8.3.6"
   },
   "author": "Yassine-mdn",
