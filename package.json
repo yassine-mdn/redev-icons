@@ -15,7 +15,7 @@
     "generate-icons": "ts-node scripts/generate-icons.ts && npm run cleanup-tsx",
     "export-icons": "ts-node scripts/generate-index.ts",
     "cleanup-tsx": "ts-node scripts/cleanup-svg.ts",
-    "semantic-release": "semantic-release",
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@svgr/cli": "^8.1.0",
