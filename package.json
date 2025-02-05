@@ -2,22 +2,30 @@
   "name": "redev-icons",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
   "scripts": {
-    "svgr": "svgr --icon --typescript -d src assets "
+    "prebuild": "rimraf src && rimraf dist",
+    "build": "npm run generate-icons && npm run export-icons && tsup",
+    "generate-icons": "ts-node scripts/generate-icons.ts && npm run cleanup-tsx",
+    "export-icons": "ts-node scripts/generate-index.ts",
+    "cleanup-tsx": "ts-node scripts/cleanup-svg.ts"
   },
   "devDependencies": {
     "@svgr/cli": "^8.1.0",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-prettier": "^8.1.0",
     "@svgr/plugin-svgo": "^8.1.0",
+    "@types/node": "^22.13.1",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
     "glob": "^11.0.1",
     "rimraf": "^6.0.1",
-    "typescript": "^5.5.3"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
   },
-  "type": "module",
   "private": true,
   "dependencies": {
-    "fs": "^0.0.1-security"
+    "@svgr/plugin-jsx": "^8.1.0",
+    "fs": "^0.0.1-security",
+    "tsup": "^8.3.6"
   }
 }
